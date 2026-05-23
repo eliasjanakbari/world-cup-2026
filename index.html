@@ -19,17 +19,16 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; background: #000; overflow: hidden; }
 
-  /* 9:16 stage — sized for a phone-shaped Short */
+  /* Fluid 9:16 stage — fills viewport width, height auto from aspect-ratio */
   .stage {
     position: relative;
-    width: 405px;
-    height: 720px;
-    margin: 0 auto;
+    width: 100vw;
+    max-width: 100%;
+    aspect-ratio: 9 / 16;
     background: var(--bg);
     overflow: hidden;
     font-family: 'DM Mono', monospace;
     color: var(--ink);
-    box-shadow: 0 0 60px rgba(0,255,136,0.15);
   }
 
   /* Grain + grid texture */
@@ -79,14 +78,16 @@
   /* ============ Scene 1: TITLE ============ */
   .title-eyebrow {
     font-family: 'DM Mono', monospace;
-    font-size: 13px; letter-spacing: 0.3em;
+    font-size: clamp(11px, 1.6vw, 16px);
+    letter-spacing: 0.3em;
     color: var(--accent);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .title-main {
     font-family: 'Anton', sans-serif;
-    font-size: 78px; line-height: 0.88;
+    font-size: clamp(56px, 9vw, 90px);
+    line-height: 0.88;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: -0.02em;
@@ -94,12 +95,12 @@
   .title-main .hot { color: var(--hot); display: block; }
   .title-main .gold { color: var(--gold); display: block; }
   .title-sub {
-    margin-top: 28px;
+    margin-top: 32px;
     font-family: 'DM Mono', monospace;
-    font-size: 14px;
+    font-size: clamp(12px, 1.7vw, 17px);
     color: var(--muted);
     text-align: center;
-    max-width: 280px;
+    max-width: 70%;
     line-height: 1.5;
   }
   .pulse-dot {
@@ -118,48 +119,49 @@
   /* ============ Generic Date Card layout (Scenes 2–5) ============ */
   .date-tag {
     font-family: 'DM Mono', monospace;
-    font-size: 12px;
+    font-size: clamp(10px, 1.6vw, 16px);
     letter-spacing: 0.25em;
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     text-transform: uppercase;
   }
   .date-big {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 96px;
+    font-size: clamp(70px, 12vw, 120px);
     line-height: 0.9;
     text-align: center;
     letter-spacing: -0.03em;
   }
   .date-month {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 38px;
+    font-size: clamp(28px, 4.5vw, 48px);
     letter-spacing: 0.08em;
     color: var(--gold);
-    margin-top: 8px;
+    margin-top: 10px;
   }
   .date-label {
     margin-top: 32px;
     font-family: 'Anton', sans-serif;
-    font-size: 32px;
+    font-size: clamp(24px, 3.8vw, 38px);
     text-transform: uppercase;
     text-align: center;
     line-height: 1.05;
-    max-width: 320px;
+    max-width: 80%;
   }
   .date-note {
-    margin-top: 18px;
+    margin-top: 20px;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: clamp(11px, 1.6vw, 16px);
     color: var(--muted);
     text-align: center;
-    max-width: 300px;
+    max-width: 75%;
     line-height: 1.55;
   }
   .accent-bar {
-    width: 60px; height: 4px;
+    width: clamp(50px, 7vw, 80px);
+    height: 4px;
     background: var(--hot);
-    margin-top: 24px;
+    margin-top: 26px;
   }
 
   /* Scene-specific accents */
@@ -172,35 +174,37 @@
   /* ============ Scene 6: FINAL ============ */
   .final-eyebrow {
     font-family: 'DM Mono', monospace;
-    font-size: 12px; letter-spacing: 0.3em;
+    font-size: clamp(10px, 1.6vw, 16px);
+    letter-spacing: 0.3em;
     color: var(--hot); text-transform: uppercase;
     margin-bottom: 16px;
   }
   .final-date {
     font-family: 'Anton', sans-serif;
-    font-size: 110px; line-height: 0.85;
+    font-size: clamp(80px, 14vw, 140px);
+    line-height: 0.85;
     color: var(--gold);
     text-align: center;
     letter-spacing: -0.03em;
   }
   .final-label {
-    margin-top: 18px;
+    margin-top: 20px;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
+    font-size: clamp(40px, 6.5vw, 70px);
     letter-spacing: 0.05em;
     text-align: center;
   }
   .final-venue {
-    margin-top: 12px;
+    margin-top: 14px;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: clamp(11px, 1.7vw, 17px);
     color: var(--muted);
     text-align: center;
-    max-width: 280px;
+    max-width: 75%;
     line-height: 1.55;
   }
   .trophy {
-    font-size: 60px;
+    font-size: clamp(48px, 7.5vw, 80px);
     margin-bottom: 8px;
     animation: bounce 2s infinite ease-in-out;
   }
@@ -227,9 +231,9 @@
   /* ============ Top branding ============ */
   .brand {
     position: absolute;
-    top: 18px; left: 20px;
+    top: 22px; left: 26px;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 16px;
+    font-size: clamp(13px, 1.9vw, 19px);
     letter-spacing: 0.18em;
     color: var(--muted);
     z-index: 5;
@@ -257,10 +261,10 @@
   /* Hashtag footer */
   .footer-tag {
     position: absolute;
-    bottom: 22px; left: 0; right: 0;
+    bottom: 26px; left: 0; right: 0;
     text-align: center;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: clamp(9px, 1.4vw, 14px);
     letter-spacing: 0.25em;
     color: var(--muted);
     z-index: 5;
@@ -269,20 +273,11 @@
 
   /* Caption line for context */
   body {
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
+    margin: 0;
+    background: #000;
     font-family: 'DM Mono', monospace;
-    color: #555;
-    padding: 20px;
   }
-  .caption {
-    margin-top: 14px;
-    font-size: 11px;
-    color: #666;
-    text-align: center;
-    max-width: 405px;
-    line-height: 1.5;
-  }
+  .caption { display: none; }
 </style>
 </head>
 <body>
