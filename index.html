@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>World Cup 2026 — Dates To Know</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Archivo+Black&display=swap');
+
+  :root {
+    --bg: #0a0e27;
+    --bg-2: #131a3f;
+    --accent: #00ff88;
+    --hot: #ff2e63;
+    --gold: #ffd23f;
+    --ink: #f4f4f4;
+    --muted: #8a93b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; background: #000; overflow: hidden; }
+
+  /* 9:16 stage — sized for a phone-shaped Short */
+  .stage {
+    position: relative;
+    width: 405px;
+    height: 720px;
+    margin: 0 auto;
+    background: var(--bg);
+    overflow: hidden;
+    font-family: 'DM Mono', monospace;
+    color: var(--ink);
+    box-shadow: 0 0 60px rgba(0,255,136,0.15);
+  }
+
+  /* Grain + grid texture */
+  .stage::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none; z-index: 1;
+  }
+  .stage::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0,255,136,0.15), transparent 60%);
+    pointer-events: none; z-index: 1;
+  }
+
+  /* Scenes — each one is absolutely positioned, fades in via animation timing */
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 40px 30px;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  /* Total runtime: 35s. 7 scenes × 5s each */
+  .scene.s1 { animation: show 35s infinite; animation-delay: 0s; }
+  .scene.s2 { animation: show 35s infinite; animation-delay: 5s; }
+  .scene.s3 { animation: show 35s infinite; animation-delay: 10s; }
+  .scene.s4 { animation: show 35s infinite; animation-delay: 15s; }
+  .scene.s5 { animation: show 35s infinite; animation-delay: 20s; }
+  .scene.s6 { animation: show 35s infinite; animation-delay: 25s; }
+  .scene.s7 { animation: show 35s infinite; animation-delay: 30s; }
+
+  @keyframes show {
+    0%    { opacity: 0; transform: scale(1.02); }
+    1.3%  { opacity: 1; transform: scale(1); }
+    12.8% { opacity: 1; transform: scale(1); }
+    15.5% { opacity: 0; transform: scale(0.98); }
+    100%  { opacity: 0; }
+  }
+
+  /* ============ Scene 1: TITLE ============ */
+  .title-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px; letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .title-main {
+    font-family: 'Anton', sans-serif;
+    font-size: 78px; line-height: 0.88;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  .title-main .hot { color: var(--hot); display: block; }
+  .title-main .gold { color: var(--gold); display: block; }
+  .title-sub {
+    margin-top: 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 280px;
+    line-height: 1.5;
+  }
+  .pulse-dot {
+    width: 10px; height: 10px;
+    background: var(--hot);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    animation: pulse 1.2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; box-shadow: 0 0 0 0 var(--hot); }
+    50% { opacity: 0.6; box-shadow: 0 0 0 12px transparent; }
+  }
+
+  /* ============ Generic Date Card layout (Scenes 2–5) ============ */
+  .date-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .date-big {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 96px;
+    line-height: 0.9;
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+  .date-month {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-top: 8px;
+  }
+  .date-label {
+    margin-top: 32px;
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.05;
+    max-width: 320px;
+  }
+  .date-note {
+    margin-top: 18px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 300px;
+    line-height: 1.55;
+  }
+  .accent-bar {
+    width: 60px; height: 4px;
+    background: var(--hot);
+    margin-top: 24px;
+  }
+
+  /* Scene-specific accents */
+  .s2 .date-big { color: var(--ink); }
+  .s3 .date-big { color: var(--accent); }
+  .s4 .date-big { color: var(--gold); }
+  .s5 .date-big { color: var(--hot); }
+  .s6 .date-big { color: var(--ink); }
+
+  /* ============ Scene 6: FINAL ============ */
+  .final-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: 0.3em;
+    color: var(--hot); text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .final-date {
+    font-family: 'Anton', sans-serif;
+    font-size: 110px; line-height: 0.85;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+  .final-label {
+    margin-top: 18px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  .final-venue {
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 280px;
+    line-height: 1.55;
+  }
+  .trophy {
+    font-size: 60px;
+    margin-bottom: 8px;
+    animation: bounce 2s infinite ease-in-out;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+  }
+
+  /* ============ Progress bar at top ============ */
+  .progress {
+    position: absolute;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold), var(--hot));
+    width: 0%;
+    animation: progress 35s infinite linear;
+    z-index: 5;
+  }
+  @keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  /* ============ Top branding ============ */
+  .brand {
+    position: absolute;
+    top: 18px; left: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    z-index: 5;
+  }
+  .brand .live {
+    color: var(--hot);
+  }
+
+  /* Floating decorative football icons */
+  .ball {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.12;
+    z-index: 1;
+    animation: float 8s infinite ease-in-out;
+  }
+  .ball.b1 { top: 12%; left: 8%; animation-delay: 0s; }
+  .ball.b2 { top: 70%; right: 10%; animation-delay: 2s; }
+  .ball.b3 { top: 40%; right: 5%; animation-delay: 4s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(180deg); }
+  }
+
+  /* Hashtag footer */
+  .footer-tag {
+    position: absolute;
+    bottom: 22px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    z-index: 5;
+  }
+  .footer-tag span { color: var(--accent); }
+
+  /* Caption line for context */
+  body {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    color: #555;
+    padding: 20px;
+  }
+  .caption {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    max-width: 405px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="progress"></div>
+  <div class="brand"><span class="live">●</span> WORLD CUP 2026</div>
+  <div class="footer-tag">#<span>WC2026</span> · DATES TO KNOW</div>
+
+  <div class="ball b1">⚽</div>
+  <div class="ball b2">⚽</div>
+  <div class="ball b3">⚽</div>
+
+  <!-- Scene 1: Title -->
+  <div class="scene s1">
+    <div class="title-eyebrow"><span class="pulse-dot"></span>Dates you need</div>
+    <h1 class="title-main">
+      <span>World Cup</span>
+      <span class="hot">2026</span>
+      <span class="gold">Decoded</span>
+    </h1>
+    <p class="title-sub">Squad reveals, kickoff, knockouts, the final.<br>Save these dates.</p>
+  </div>
+
+  <!-- Scene 2: 18 May — squad reveals kick off -->
+  <div class="scene s2">
+    <div class="date-tag">Date 01 / Reveals begin</div>
+    <div class="date-big">18</div>
+    <div class="date-month">MAY 2026</div>
+    <div class="accent-bar"></div>
+    <div class="date-label">Squad Reveals Kick Off</div>
+    <div class="date-note">Brazil and Croatia drop first. England follow on May 22, USA on May 26 — reveals roll in daily until June 1.</div>
+  </div>
+
+  <!-- Scene 3: June 2 — Official lists published -->
+  <div class="scene s3">
+    <div class="date-tag">Date 02 / Official</div>
+    <div class="date-big">02</div>
+    <div class="date-month">JUNE 2026</div>
+    <div class="accent-bar"></div>
+    <div class="date-label">FIFA Confirms All 48 Squads</div>
+    <div class="date-note">The official drop. Every nation. Every name. One list.</div>
+  </div>
+
+  <!-- Scene 4: June 11 — Kickoff -->
+  <div class="scene s4">
+    <div class="date-tag">Date 03 / Kickoff</div>
+    <div class="date-big">11</div>
+    <div class="date-month">JUNE 2026</div>
+    <div class="accent-bar"></div>
+    <div class="date-label">Mexico vs South Africa</div>
+    <div class="date-note">Estadio Azteca, Mexico City. The tournament begins.</div>
+  </div>
+
+  <!-- Scene 5: June 27 — Group stage ends -->
+  <div class="scene s5">
+    <div class="date-tag">Date 04 / Group stage ends</div>
+    <div class="date-big">27</div>
+    <div class="date-month">JUNE 2026</div>
+    <div class="accent-bar"></div>
+    <div class="date-label">Last Group Games</div>
+    <div class="date-note">Final round-robin matchday. 32 teams advance — and 16 go home.</div>
+  </div>
+
+  <!-- Scene 6: Knockouts -->
+  <div class="scene s6">
+    <div class="date-tag">Date 05 / Knockouts</div>
+    <div class="date-big">28</div>
+    <div class="date-month">JUNE → JULY</div>
+    <div class="accent-bar"></div>
+    <div class="date-label">The Bracket Begins</div>
+    <div class="date-note">
+      R32: <strong style="color:var(--accent)">Jun 28 – Jul 3</strong><br>
+      R16: <strong style="color:var(--accent)">Jul 4 – 7</strong><br>
+      Quarters: <strong style="color:var(--gold)">Jul 9 – 11</strong><br>
+      Semis: <strong style="color:var(--hot)">Jul 14 – 15</strong>
+    </div>
+  </div>
+
+  <!-- Scene 7: July 19 — Final -->
+  <div class="scene s7">
+    <div class="final-eyebrow">● THE FINAL</div>
+    <div class="trophy">🏆</div>
+    <div class="final-date">JULY<br>19</div>
+    <div class="final-label">MetLife Stadium</div>
+    <div class="final-venue">New York / New Jersey<br>104 matches. 48 teams. One winner.</div>
+  </div>
+
+</div>
+
+<div class="caption">
+  ▶ Loops every 35s · Screen-record in portrait for your Short
+</div>
+
+</body>
+</html>
